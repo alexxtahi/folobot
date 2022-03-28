@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BotController;
 // importing bot routes
 require __DIR__ . '/bot.php';
 
@@ -16,5 +17,5 @@ require __DIR__ . '/bot.php';
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('message');
 });

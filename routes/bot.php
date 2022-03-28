@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::group(['bot'], function () {
-//     // testing bot
-//     Route::get('/test', [BotController::class, 'test']);
-// });
-
-Route::get('/bot/test', [BotController::class, 'test']);
+Route::group(['prefix' => 'bot'], function () {
+    // testing bot
+    Route::get('/test', [BotController::class, 'test']);
+    // get conversations list
+    Route::get('/conversations', [BotController::class, 'conversationsList']);
+    // send message to a specific channel
+    Route::post('/message', [BotController::class, 'sendMessage'])->name('bot.message');
+});
